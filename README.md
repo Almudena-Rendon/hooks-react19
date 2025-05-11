@@ -21,3 +21,16 @@ This hook helps manage a temporary, optimistic version of the `todos` list—upd
 const [visibleList, addTemporaryItem] = useOptimistic(todos, (currentList, newItem) => {
   return [...currentList, newItem];
 });
+
+- **`todos`**:  
+  This is the real, up-to-date list of items from your state, probably loaded from a database or API.
+
+- **`(currentList, newItem) => [...currentList, newItem]`**:  
+  This function describes how to update the list optimistically. It takes the current list and adds the new item to it.
+
+- **`visibleList`**:  
+  This is the version of the list displayed on the screen, including any temporary (optimistic) items added with `addTemporaryItem`, even if they haven't been saved yet.
+
+- **`addTemporaryItem`**:  
+  This function allows you to add a new item optimistically.  
+  When called, React immediately updates `visibleList` with the new item—even though the actual `todos` array hasn't changed yet.
