@@ -35,3 +35,30 @@ const [visibleList, addTemporaryItem] = useOptimistic(todos, (currentList, newIt
 - **`addTemporaryItem`**:  
   This function allows you to add a new item optimistically.  
   When called, React immediately updates `visibleList` with the new item—even though the actual `todos` array hasn't changed yet.
+
+## `useFormStatus`: Track Form State with Ease
+
+The `useFormStatus` hook in React 19 is designed to help you track the status of a form submission, making it easier to provide real-time feedback to users.
+
+### Why it’s useful
+
+With `useFormStatus`, you no longer need to manually manage extra state to track form submission. React handles it for you automatically, so your code becomes cleaner and your forms more responsive.  
+It improves the user experience by clearly indicating when something is happening in the background.
+
+### Example usage
+
+In previous versions of React, you would typically create a loading state to control the submit button or show a spinner. With `useFormStatus`, that’s no longer necessary.  
+React gives you direct access to the form’s current status—like `pending`—which you can use to conditionally update the UI and display feedback messages.
+
+```jsx
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return <button disabled={pending}>{pending ? "Submitting..." : "Submit"}</button>;
+}
+```
+
+- **`pending`**:  
+  A boolean value (`true` or `false`) that tells you whether the form is currently being submitted.
+  - **`true`**: The form is in the middle of a submission. You can use this to disable buttons, show a loading spinner, or prevent duplicate submissions.
+  - **`false`**: The form is idle or the submission has finished.
+
