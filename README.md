@@ -4,9 +4,9 @@
 
 React 19 was launched in 2024 and introduces a new set of powerful hooks that transform how we handle forms, user interactions, and server-side logic. In this article, we will explore the benefits of these new hooks and how to use them.
 
-1. [useOptimistic](#useOptimistic)
-2. [useFormStatus](#useFormStatus)
-3. [useActionState](#useActionState)
+1. [useOptimistic](#useoptimistic)
+2. [useFormStatus](#useformstatus)
+3. [useActionState](#useactionstate)
 
 ---
 
