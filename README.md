@@ -19,8 +19,8 @@ This hook helps manage a temporary, optimistic version of the `todos` list—upd
 
 ```jsx
 const [visibleList, addTemporaryItem] = useOptimistic(todos, (currentList, newItem) => {
-  return [...currentList, newItem];
-});
+  return [...currentList, newItem]
+})
 
 - **`todos`**:  
   This is the real, up-to-date list of items from your state, probably loaded from a database or API.
