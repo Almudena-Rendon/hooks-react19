@@ -52,8 +52,8 @@ React gives you direct access to the form’s current status—like `pending`—
 
 ```jsx
 function SubmitButton() {
-  const { pending } = useFormStatus();
-  return <button disabled={pending}>{pending ? "Submitting..." : "Submit"}</button>;
+  const { pending } = useFormStatus()
+  return <button disabled={pending}>{pending ? "Submitting..." : "Submit"}</button>
 }
 ```
 
@@ -61,4 +61,40 @@ function SubmitButton() {
   A boolean value (`true` or `false`) that tells you whether the form is currently being submitted.
   - **`true`**: The form is in the middle of a submission. You can use this to disable buttons, show a loading spinner, or prevent duplicate submissions.
   - **`false`**: The form is idle or the submission has finished.
+
+## `useActionState`: Manage Action States Efficiently
+
+The `useActionState` hook in React 19 helps you manage the state of asynchronous actions in your application, such as sending a request to the server or performing a background task.  
+It tells you whether the action is currently pending, successful, or has failed, allowing you to update the UI accordingly.
+
+### Why it’s useful
+
+The `useActionState` hook in React 19 helps you manage the state of asynchronous actions in your application, such as sending a request to the server or performing a background task.  
+It tells you whether the action is currently pending, successful, or has failed, allowing you to update the UI accordingly.
+
+### Example usage:
+
+Without `useActionState`, you'd typically need to manage multiple state variables like `isLoading`, `isError`, or `isSuccess`. This adds extra complexity and room for bugs.  
+With `useActionState`, a single state value tracks everything. This simplifies your code, reduces boilerplate, and makes it easier to handle feedback in the UI.
+
+```jsx
+function MyComponent() {
+  const { state, performAction } = useActionState()
+  return (
+    <div>
+      <button onClick={performAction} disabled={state === 'pending'}>
+        {state === 'pending' ? 'Loading...' : 'Submit'}
+      </button>
+      {state === 'success' && <p>Action was successful!</p>}
+      {state === 'error' && <p>Something went wrong. Try again!</p>}
+    </div>
+  )
+}
+```
+- **`state`**: Represents the current status of the action.
+  - **`'pending'`**: The action is in progress.
+  - **`'success'`**: The action completed successfully.
+  - **`'error'`**: Something went wrong.
+
+- **`performAction`**: A function that triggers your async action and automatically updates the state based on the result.
 
