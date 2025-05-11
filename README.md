@@ -110,6 +110,8 @@ React 19 introduces powerful new hooks that simplify common patterns in modern w
 
 By using these hooks, you can build fast, responsive interfaces with less effort and more clarity.
 
+[![Thanks for reading!](https://pimp-my-readme-next.vercel.app/api/sliding-text?emojis=269b-fe0f&text=Thanks%20for%20reading%21)](https://pimp-my-readme-next.vercel.app)
+
 If you haven’t tried React 19 yet, this is a great reason to dive in and start experimenting with these new patterns.
 
 
