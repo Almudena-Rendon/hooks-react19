@@ -5,7 +5,12 @@ import { submitName } from '@/app/actions/submitName'
 import SubmitButton from './SubmitButton'
 
 const UseActionHook = () => {
-  // Here, `submitName` is the function handling data submission, and `message` stores the response or message after submission
+// This form uses `useActionState` to handle submission.
+// It sends the form data to a mock server action function (`submitName`),
+// and stores the returned message in local state to display feedback to the user.
+
+// `useFormStatus` in the button component gives us access to the current status of the form,
+// allowing us to manage loading states or disable the button during submission.
 
   const [message, formAction] = useActionState(submitName, '')
 

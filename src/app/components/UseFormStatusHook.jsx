@@ -7,7 +7,8 @@ import SubmitButton from './SubmitButton'
 const UseFormStatusHook = () => {
   const [tasks, setTasks] = useState([])
 
-  // Here, `handleSubmit` adds the new task to the `tasks` state and submits it using the `submitTask` action
+  // This function handles the form submission.
+  // It first adds the new task to local state, then sends the form data to a mock server action function (simulated with a delay).
 
   async function handleSubmit(formData) {
     const task = formData.get('task')
@@ -29,6 +30,7 @@ const UseFormStatusHook = () => {
           placeholder="Enter a new task"
           required
         />
+        {/* Custom button component that uses useFormStatus internally */}
         <SubmitButton text="Add Task" />
       </form>
 

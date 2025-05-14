@@ -3,11 +3,11 @@
 import { useState, startTransition, useOptimistic } from 'react'
 import SubmitButton from './SubmitButton'
 
-const UseOptimitiscHook = () => {
+const UseOptimisticHook = () => {
   const [newTodo, setNewTodo] = useState('')
   const [todos, setTodos] = useState([])
 
-  // Here we are using useOptimistic to optimize the state
+  // useOptimistic lets us show the new todo immediately while the actual state updates
   const [visibleList, addTemporaryItem] = useOptimistic(
     todos,
     (currentList, newItem) => {
@@ -41,6 +41,7 @@ const UseOptimitiscHook = () => {
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Enter a new task"
         />
+        {/* Custom button component that uses useFormStatus internally */}
         <SubmitButton text="Add Todo" />
       </form>
 
@@ -53,4 +54,4 @@ const UseOptimitiscHook = () => {
   )
 }
 
-export default UseOptimitiscHook
+export default UseOptimisticHook
