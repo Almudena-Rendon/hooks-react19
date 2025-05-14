@@ -35,6 +35,14 @@ a {
   text-decoration: none;
 }
 
+.link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
